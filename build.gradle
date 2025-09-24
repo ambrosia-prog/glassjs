@@ -1,0 +1,66 @@
+plugins {
+    alias mod.plugins.loom
+}
+
+base {
+    archivesName = project.archives_base_name
+}
+
+version = project.mod_version
+group = project.maven_group
+
+loom {
+    silentMojangMappingsLicense()
+}
+
+repositories {
+    maven {
+        name = "Lat's Maven (Rhino, KubeJS)"
+        url = "https://maven.latvian.dev/releases"
+        content {
+            includeGroup "dev.latvian.mods"
+        }
+    }
+
+
+}
+
+dependencies {
+    /* Minecraft and Forge */
+    minecraft mod.minecraft
+    mappings  loom.officialMojangMappings()
+    forge     "net.minecraftforge:forge:1.20.1-47.3.0"
+
+    /* KubeJS */
+    implementation "dev.latvian.mods:kubejs-forge:2001.6.5-build.16"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : project.mod_id,
+                "Specification-Vendor"    : project.mod_author,
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : version,
+                "Implementation-Vendor"   : project.mod_author,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}

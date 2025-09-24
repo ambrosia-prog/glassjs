@@ -1,0 +1,39 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All rights reserved" # https://choosealicense.com/
+
+
+# issueTrackerURL="https://github.com/invalid/pleasechangeme/issues"
+
+[[mods]]
+modId = "glassjs"
+version = "${version}"
+displayName = "GlassJS"
+logoFile="icon.png"
+credits="Thanks to FooterMan for the KubeJS Addon Template!"
+authors="It's Evelyn"
+description = '''
+Adds a connective glass base for KubeJS that will hide inside faces when touching other KubeJS glass using this base. Useful for CTM.
+Also adds a pane/bar base, as well as a connective version of that. "pane", "c_pane", and "c_glass" are the new variants.
+'''
+
+[[dependencies.glassjs]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.glassjs]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.glassjs]]
+modId = "kubejs"
+mandatory = true
+versionRange = "[2001.6.4,)"
+ordering = "NONE"
+side = "BOTH"
