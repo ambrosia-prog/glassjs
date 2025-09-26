@@ -2,8 +2,18 @@
 Kubes Forge addon that adds panes, and variants that are more compatible with CTM.
 Specifically, it was built for "kubejs-forge:2001.6.5-build.16", it probably works on basically any build past that but that's the one I'm working off of.
 
-It adds three more builders. The biggest (and most irritating) of the three is PaneBlockBuilder, which allows KubeJS to generate pane/bar-type blocks with the standard .create('id', 'variant') rather than anything more complex. It unfortunately falls to the same issue that other multiparts such as stairs experience with KubeJS, in that it is seemingly incredibly difficult to specify textures for them beyond the shotgun approach of .textureAll('id:texture'). This leaves the pane looking alright, but the edges are very obviously improperly textured. Also, the item is invisible, but that one's because I have no idea what I'm doing since panes don't just have an inventory model I can work off of. Please, if you know fixes, let me know, or just make pull requests, I honestly don't know how github works I just wanted my source visible.
+THis addon adds five block builders:
+Panes/Connective Panes
+Bars/Connective Bars
+Connective Glass
 
-Other than that, there's a builder that allows for blocks built from it to cull inside faces if they're touching another block made by the same builder. This is intended for use with CTM-type things, where you can have multiple different glass blocks merge without obvious borders inside of the block. Panes also have one, but it honestly hasn't been tested, since I've been focusing on trying to get textures to behave normally before moving on to merging them.
+Connective variants cull inside faces between other blocks of the same parent builder, so mixing glass will make one seamless whole without visible geometry on the inside.
 
-Their variants are "pane", "c_pane", and "c_glass".
+There are differences between how vanilla handles thse and how this addon handles them, in that both panes and bars now require a cross-shaped "top" texture, as opposed to only panes needing a top texture, and a line at that. This is due to me being lazy and not wanting to figure out how to rotate assets. Additionally, Bar-type blocks need extra resources as a resource pack, or just stuck into the KubeJS asset folders, wherever you like really. Minecraft has no template bar models to work off of so I had to make them myself.
+
+# Variant Tags
+pane
+c_pane
+bars
+c_bars
+c_glass
