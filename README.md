@@ -2,9 +2,9 @@
 Kubes Forge addon that adds panes, and variants that are more compatible with CTM.
 Specifically, it was built for "kubejs-forge:2001.6.5-build.16", it probably works on basically any build past that but that's the one I'm working off of.
 
-THis addon adds five block builders:
-Panes/Connective Panes
-Bars/Connective Bars
+This addon adds five block builders:
+Panes/Connective Panes,
+Bars/Connective Bars, and
 Connective Glass
 
 Connective variants cull inside faces between other blocks of the same parent builder, so mixing glass will make one seamless whole without visible geometry on the inside.
@@ -19,4 +19,4 @@ c_bars
 c_glass
 
 # IMPORTANT
-To maek textures work properly on panes/bars, you HAVE to use .textureAll("id:path/to/texture"), kubeJS handles textures in a weird way and this is the first fix I found, so yeah. Additionally, your top texture must have the suffix "_top" (ex. glasspane_top), as the builder only looks for that specific one. If I feel like it, I'll make it fall back to the main texture at some point later.
+To make textures work properly on panes/bars, you HAVE to use .textureAll("id:path/to/texture"), kubeJS handles textures in a weird way and this is the first fix I found. Additionally, your top texture must have the suffix "_top" (ex. glasspane_top.png), as the builder only looks for that specific one. If I feel like it, I'll make it fall back to the main texture at some point later.
