@@ -13,6 +13,8 @@ public class GlassJSPlugin extends KubeJSPlugin {
         RegistryInfo.BLOCK.addType("c_glass", ConnectiveGlassBlockBuilder.class, ConnectiveGlassBlockBuilder::new);
         RegistryInfo.BLOCK.addType("c_pane", ConnectivePaneBlockBuilder.class, ConnectivePaneBlockBuilder::new);
         RegistryInfo.BLOCK.addType("pane", PaneBlockBuilder.class, PaneBlockBuilder::new);
+        RegistryInfo.BLOCK.addType("bars", BarsBlockBuilder.class, BarsBlockBuilder::new);
+        RegistryInfo.BLOCK.addType("c_bars", ConnectiveBarsBlockBuilder.class, ConnectiveBarsBlockBuilder::new);
     }
 }
 

@@ -8,9 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.IronBarsBlock;
 
-public class PaneBlockBuilder extends MultipartShapedBlockBuilder {
-    public PaneBlockBuilder(ResourceLocation i) {
-        super(i, "_pane");
+public class BarsBlockBuilder extends MultipartShapedBlockBuilder {
+    public BarsBlockBuilder(ResourceLocation i) {
+        super(i, "_bars","_bar");
     }
 
     @Override
@@ -18,23 +18,25 @@ public class PaneBlockBuilder extends MultipartShapedBlockBuilder {
         return new IronBarsBlock(createProperties());
     }
 
-    @Override
     protected void generateMultipartBlockStateJson(MultipartBlockStateGenerator bs) {
+        var modCap = newID("block/", "_cap").toString();
+        var modCapAlt = newID("block/", "_cap_alt").toString();
         var modPost = newID("block/", "_post").toString();
+        var modPostEnds = newID("block/", "_post_ends").toString();
         var modSide = newID("block/", "_side").toString();
         var modSideAlt = newID("block/", "_side_alt").toString();
-        var modNoSide = newID("block/", "_noside").toString();
-        var modNoSideAlt = newID("block/", "_noside_alt").toString();
 
-        bs.part("", modPost);
+        bs.part("", modPostEnds);
+        bs.part("east=false,north=false,south=false,west=false", p -> p.model(modPost).uvlock());
+        bs.part("east=false,north=true,south=false,west=false", p -> p.model(modCap).uvlock());
+        bs.part("east=true,north=false,south=false,west=false", p -> p.model(modCap).uvlock().y(90));
+        bs.part("east=false,north=false,south=true,west=false", p -> p.model(modCapAlt).uvlock());
+        bs.part("east=false,north=false,south=false,west=true", p -> p.model(modCapAlt).uvlock().y(90));
         bs.part("north=true", p -> p.model(modSide).uvlock());
         bs.part("east=true", p -> p.model(modSide).uvlock().y(90));
         bs.part("south=true", p -> p.model(modSideAlt).uvlock());
         bs.part("west=true", p -> p.model(modSideAlt).uvlock().y(90));
-        bs.part("north=false", p -> p.model(modNoSide).uvlock());
-        bs.part("east=false", p -> p.model(modNoSideAlt).uvlock());
-        bs.part("south=false", p -> p.model(modNoSideAlt).uvlock().y(90));
-        bs.part("west=false", p -> p.model(modNoSide).uvlock().y(270));
+
     }
 
     @Override
@@ -48,33 +50,39 @@ public class PaneBlockBuilder extends MultipartShapedBlockBuilder {
         var texture = textures.get("texture").getAsString();
         var textureEdge = textures.get("texture").getAsString()+"_top";
 
-        generator.blockModel(newID("", "_noside"), m -> {
-            m.parent("minecraft:block/template_glass_pane_noside");
-            m.texture("pane", texture);
+        generator.blockModel(newID("", "_cap"), m -> {
+            m.parent("kubejs:block/template_bars_cap");
+            m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
-        generator.blockModel(newID("", "_noside_alt"), m -> {
-            m.parent("minecraft:block/template_glass_pane_noside_alt");
-            m.texture("pane", texture);
+        generator.blockModel(newID("", "_cap_alt"), m -> {
+            m.parent("kubejs:block/template_bars_cap_alt");
+            m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_post"), m -> {
-            m.parent("minecraft:block/template_glass_pane_post");
-            m.texture("pane", texture);
+            m.parent("kubejs:block/template_bars_post");
+            m.texture("bars", texture);
+            m.texture("edge", textureEdge);
+        });
+
+        generator.blockModel(newID("", "_post_ends"), m -> {
+            m.parent("kubejs:block/template_bars_post_ends");
+            m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_side"), m -> {
-            m.parent("minecraft:block/template_glass_pane_side");
-            m.texture("pane", texture);
+            m.parent("kubejs:block/template_bars_side");
+            m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_side_alt"), m -> {
-            m.parent("minecraft:block/template_glass_pane_side_alt");
-            m.texture("pane", texture);
+            m.parent("kubejs:block/template_bars_side_alt");
+            m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
     }

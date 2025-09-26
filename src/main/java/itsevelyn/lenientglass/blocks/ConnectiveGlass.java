@@ -1,4 +1,4 @@
-package itsevelyn.lenientglass.glass;
+package itsevelyn.lenientglass.blocks;
 
 import dev.latvian.mods.kubejs.block.BlockBuilder;
 import dev.latvian.mods.kubejs.block.custom.BasicBlockJS;
@@ -13,7 +13,7 @@ public class ConnectiveGlass extends BasicBlockJS {
 
     @Override
     public boolean skipRendering(@NotNull BlockState stateIs, BlockState stateNear, Direction dir) {
-        if (stateNear.getBlock() instanceof itsevelyn.lenientglass.glass.ConnectiveGlass)
+        if (stateNear.getBlock() instanceof itsevelyn.lenientglass.blocks.ConnectiveGlass)
             return true;
         else
             return super.skipRendering(stateIs, stateNear, dir);

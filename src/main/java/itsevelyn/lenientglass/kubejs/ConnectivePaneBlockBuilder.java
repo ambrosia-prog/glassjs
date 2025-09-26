@@ -1,6 +1,6 @@
 package itsevelyn.lenientglass.kubejs;
 
-import itsevelyn.lenientglass.glass.ConnectivePane;
+import itsevelyn.lenientglass.blocks.ConnectivePane;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
