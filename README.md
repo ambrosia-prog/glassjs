@@ -9,7 +9,7 @@ Connective Glass
 
 Connective variants cull inside faces between other blocks of the same parent builder, so mixing glass will make one seamless whole without visible geometry on the inside.
 
-There are differences between how vanilla handles thse and how this addon handles them, in that both panes and bars now require a cross-shaped "top" texture, as opposed to only panes needing a top texture, and a line at that. This is due to me being lazy and not wanting to figure out how to rotate assets. Additionally, Bar-type blocks need extra resources as a resource pack, or just stuck into the KubeJS asset folders, wherever you like really. Minecraft has no template bar models to work off of so I had to make them myself.
+There are differences between how vanilla handles these and how this addon handles them, in that both panes and bars now require a cross-shaped "top" texture, as opposed to only panes needing a top texture, and a line at that. This is due to me being lazy and not wanting to figure out how to rotate assets. Additionally, Bar-type blocks need extra resources as a resource pack, or just stuck into the KubeJS asset folders, wherever you like really. Minecraft has no template bar models to work off of so I had to make them myself.
 
  - Variant Tags - 
 pane
