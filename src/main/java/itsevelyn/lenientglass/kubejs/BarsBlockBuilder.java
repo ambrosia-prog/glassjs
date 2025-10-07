@@ -51,37 +51,37 @@ public class BarsBlockBuilder extends MultipartShapedBlockBuilder {
         var textureEdge = textures.get("texture").getAsString()+"_top";
 
         generator.blockModel(newID("", "_cap"), m -> {
-            m.parent("kubejs:block/template_bars_cap");
+            m.parent("glassjs:block/template_bars_cap");
             m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_cap_alt"), m -> {
-            m.parent("kubejs:block/template_bars_cap_alt");
+            m.parent("glassjs:block/template_bars_cap_alt");
             m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_post"), m -> {
-            m.parent("kubejs:block/template_bars_post");
+            m.parent("glassjs:block/template_bars_post");
             m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_post_ends"), m -> {
-            m.parent("kubejs:block/template_bars_post_ends");
+            m.parent("glassjs:block/template_bars_post_ends");
             m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_side"), m -> {
-            m.parent("kubejs:block/template_bars_side");
+            m.parent("glassjs:block/template_bars_side");
             m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
 
         generator.blockModel(newID("", "_side_alt"), m -> {
-            m.parent("kubejs:block/template_bars_side_alt");
+            m.parent("glassjs:block/template_bars_side_alt");
             m.texture("bars", texture);
             m.texture("edge", textureEdge);
         });
