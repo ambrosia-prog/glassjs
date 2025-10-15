@@ -1,4 +1,4 @@
-# GlassJS
+# GlassJS - [Forge Page](https://www.curseforge.com/minecraft/mc-mods/glassjs)
 Kubes Forge addon that adds panes, and variants that are more compatible with CTM.
 Specifically, it was built for "kubejs-forge:2001.6.5-build.16", it probably works on basically any build past that but that's the one I'm working off of.
 
